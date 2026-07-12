@@ -31,6 +31,7 @@ import useSocketStore from '@/store/socketStore';
 import useTodoStore from '@/store/todoStore';
 import useCalendarStore from '@/store/calendarStore';
 import usePlannerStore from '@/store/plannerStore';
+import useFinanceStore from '@/store/financeStore';
 
 export default function DashboardPage() {
   const { user, updateUser } = useAuthStore();
@@ -46,6 +47,7 @@ export default function DashboardPage() {
   const { tasks, fetchTasks, shoppingItems, fetchShoppingItems } = useTodoStore();
   const { events, fetchEvents } = useCalendarStore();
   const { travelPlans, fetchTravelPlans } = usePlannerStore();
+  const { summary, fetchAll: fetchFinanceData } = useFinanceStore();
 
   useEffect(() => {
     if (paired) {
@@ -64,6 +66,7 @@ export default function DashboardPage() {
       fetchShoppingItems();
       fetchEvents();
       fetchTravelPlans();
+      fetchFinanceData();
     }
   }, [paired]);
 
@@ -579,6 +582,22 @@ export default function DashboardPage() {
                         ${shoppingItems.reduce((acc, i) => acc + (i.price * i.quantity), 0).toFixed(2)}
                       </div>
                       <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Shopping Est.</div>
+                    </div>
+                  </Link>
+
+                  {/* Finance Balance */}
+                  <Link 
+                    to="/finance"
+                    className="p-4 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl space-y-2 flex flex-col justify-between shadow-sm cursor-pointer hover:translate-y-[-4px] transition-transform col-span-2 sm:col-span-1"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500 flex items-center justify-center font-bold">
+                      💳
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[var(--text-primary)]">
+                        ${summary?.monthly?.savings !== undefined ? summary.monthly.savings.toLocaleString() : '0.00'}
+                      </div>
+                      <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Net Savings</div>
                     </div>
                   </Link>
                 </div>

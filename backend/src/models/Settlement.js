@@ -1,13 +1,18 @@
 import mongoose from 'mongoose';
 
-const incomeSchema = new mongoose.Schema({
+const settlementSchema = new mongoose.Schema({
   relationshipId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Relationship',
     required: true,
     index: true,
   },
-  addedBy: {
+  fromUser: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  toUser: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
@@ -15,37 +20,25 @@ const incomeSchema = new mongoose.Schema({
   amount: {
     type: Number,
     required: true,
-    min: 0,
-  },
-  category: {
-    type: String,
-    enum: ['Salary', 'Freelance', 'Business', 'Gift', 'Bonus', 'Investment', 'Other'],
-    default: 'Other',
+    min: 0.01,
   },
   date: {
     type: Date,
     default: Date.now,
   },
-  description: {
+  status: {
     type: String,
-    trim: true,
-    required: true,
-  },
-  recurring: {
-    type: Boolean,
-    default: false,
+    enum: ['pending', 'completed'],
+    default: 'completed',
   },
   notes: {
     type: String,
     trim: true,
     default: '',
   },
-  attachments: [{
-    type: String,
-  }],
 }, {
   timestamps: true,
 });
 
-const Income = mongoose.model('Income', incomeSchema);
-export default Income;
+const Settlement = mongoose.model('Settlement', settlementSchema);
+export default Settlement;

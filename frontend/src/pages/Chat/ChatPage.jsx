@@ -8,6 +8,8 @@ import {
   ArrowDown, Pin, Star, Eye
 } from 'lucide-react';
 
+import Avatar from '@/components/ui/Avatar';
+import Button from '@/components/ui/Button';
 import useAuthStore from '@/store/authStore';
 import useChatStore from '@/store/chatStore';
 import useSocketStore from '@/store/socketStore';
@@ -216,7 +218,6 @@ export default function ChatPage() {
   const [partner, setPartner] = useState(null);
   const [inputText, setInputText] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchVal, setSearchVal] = useState('');
   const [highlightedMessageId, setHighlightedMessageId] = useState(null);
   
   // Media uploads states

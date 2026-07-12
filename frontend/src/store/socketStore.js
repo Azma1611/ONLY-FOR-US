@@ -7,6 +7,7 @@ import useNotificationStore from './notificationStore';
 import useCalendarStore from './calendarStore';
 import useTodoStore from './todoStore';
 import usePlannerStore from './plannerStore';
+import useFinanceStore from './financeStore';
 
 const getSocketUrl = () => {
   return API_BASE_URL.replace('/api', '');
@@ -194,6 +195,11 @@ const useSocketStore = create((set, get) => ({
     });
     newSocket.on('restaurant_deleted', ({ planId }) => {
       usePlannerStore.getState().removeRestaurantLocally(planId);
+    });
+
+    // Finance listener
+    newSocket.on('finance_update', (update) => {
+      useFinanceStore.getState().handleSocketUpdate(update);
     });
 
     newSocket.on('error', (err) => {

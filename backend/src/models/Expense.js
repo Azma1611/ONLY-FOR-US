@@ -7,10 +7,10 @@ const expenseSchema = new mongoose.Schema({
     required: true,
     index: true,
   },
-  title: {
-    type: String,
+  paidBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
-    trim: true,
   },
   amount: {
     type: Number,
@@ -19,17 +19,36 @@ const expenseSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    default: 'General',
-    trim: true,
+    enum: ['Food', 'Shopping', 'Travel', 'Bills', 'Medical', 'Education', 'Entertainment', 'Transport', 'Rent', 'Subscriptions', 'Pets', 'Home', 'Gifts', 'Other'],
+    default: 'Other',
   },
-  paidBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  description: {
+    type: String,
+    trim: true,
     required: true,
   },
   shared: {
     type: Boolean,
     default: true,
+  },
+  splitPercentage: {
+    type: Number,
+    default: 50,
+    min: 0,
+    max: 100,
+  },
+  receiptImage: {
+    type: String, // URL from Cloudinary or local path
+    default: '',
+  },
+  notes: {
+    type: String,
+    trim: true,
+    default: '',
   },
 }, {
   timestamps: true,

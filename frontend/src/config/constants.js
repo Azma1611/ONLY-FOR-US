@@ -11,6 +11,7 @@ export const ROUTES = {
   CHAT: '/chat',
   CALENDAR: '/calendar',
   PLANNER: '/planner',
+  FINANCE: '/finance',
 };
 
 // App metadata
@@ -31,5 +32,6 @@ export const NAV_ITEMS = [
   { path: ROUTES.CHAT, label: 'Chat', icon: 'MessageCircle' },
   { path: ROUTES.CALENDAR, label: 'Calendar', icon: 'Calendar' },
   { path: ROUTES.PLANNER, label: 'Planner', icon: 'ClipboardList' },
+  { path: ROUTES.FINANCE, label: 'Finance', icon: 'Wallet' },
   { path: ROUTES.PROFILE, label: 'Profile', icon: 'User' },
 ];

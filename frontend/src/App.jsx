@@ -18,6 +18,7 @@ import {
   ChatPage,
   CalendarPage,
   PlannerPage,
+  FinancePage,
 } from '@/routes';
 
 /**
@@ -48,6 +49,7 @@ export default function App() {
               <Route path="/chat" element={<ChatPage />} />
               <Route path="/calendar" element={<CalendarPage />} />
               <Route path="/planner" element={<PlannerPage />} />
+              <Route path="/finance" element={<FinancePage />} />
             </Route>
           </Route>
 

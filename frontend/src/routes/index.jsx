@@ -13,5 +13,6 @@ export const ProfilePage = lazy(() => import('@/pages/Profile/ProfilePage'));
 export const ChatPage = lazy(() => import('@/pages/Chat/ChatPage'));
 export const CalendarPage = lazy(() => import('@/pages/Calendar/CalendarPage'));
 export const PlannerPage = lazy(() => import('@/pages/Planner/PlannerPage'));
+export const FinancePage = lazy(() => import('@/pages/Finance/FinancePage'));
 
 
