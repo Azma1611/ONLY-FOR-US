@@ -1,0 +1,195 @@
+[2026-07-10T15:08:14.302Z] TO: e2etest_user_100@onlyforus.com | SUBJECT: Verify your account: 715992 💕 | TEXT: Hi Test E2E User,
+
+Your 6-digit email verification code is: 715992
+
+This code expires in 10 minutes.
+[2026-07-10T15:09:08.921Z] TO: e2etest_user_100@onlyforus.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test E2E User,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T16:43:59.690Z] TO: asuyaso2016@gmail.com | SUBJECT: Verify your account: 674765 💕 | TEXT: Hi Asu,
+
+Your 6-digit email verification code is: 674765
+
+This code expires in 10 minutes.
+[2026-07-10T17:14:24.949Z] TO: test_partner_a_314432@example.com | SUBJECT: Verify your account: 893375 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 893375
+
+This code expires in 10 minutes.
+[2026-07-10T17:14:25.220Z] TO: test_partner_b_314432@example.com | SUBJECT: Verify your account: 680213 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 680213
+
+This code expires in 10 minutes.
+[2026-07-10T17:15:55.742Z] TO: test_partner_a_359539@example.com | SUBJECT: Verify your account: 504547 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 504547
+
+This code expires in 10 minutes.
+[2026-07-10T17:15:56.080Z] TO: test_partner_b_359539@example.com | SUBJECT: Verify your account: 132605 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 132605
+
+This code expires in 10 minutes.
+[2026-07-10T17:16:30.719Z] TO: test_partner_a_133190@example.com | SUBJECT: Verify your account: 767479 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 767479
+
+This code expires in 10 minutes.
+[2026-07-10T17:16:31.019Z] TO: test_partner_b_133190@example.com | SUBJECT: Verify your account: 529996 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 529996
+
+This code expires in 10 minutes.
+[2026-07-10T17:17:01.080Z] TO: test_partner_a_606655@example.com | SUBJECT: Verify your account: 128351 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 128351
+
+This code expires in 10 minutes.
+[2026-07-10T17:17:01.338Z] TO: test_partner_b_606655@example.com | SUBJECT: Verify your account: 100114 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 100114
+
+This code expires in 10 minutes.
+[2026-07-10T17:17:02.549Z] TO: test_partner_a_606655@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner A,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:17:02.700Z] TO: test_partner_b_606655@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner B,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:17:41.039Z] TO: test_partner_a_955500@example.com | SUBJECT: Verify your account: 852734 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 852734
+
+This code expires in 10 minutes.
+[2026-07-10T17:19:19.547Z] TO: test_partner_a_186449@example.com | SUBJECT: Verify your account: 274620 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 274620
+
+This code expires in 10 minutes.
+[2026-07-10T17:19:19.858Z] TO: test_partner_b_186449@example.com | SUBJECT: Verify your account: 114276 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 114276
+
+This code expires in 10 minutes.
+[2026-07-10T17:19:21.069Z] TO: test_partner_a_186449@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner A,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:19:21.225Z] TO: test_partner_b_186449@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner B,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:19:23.129Z] TO: test_partner_a_186449@example.com | SUBJECT: Your partner accepted your invitation! 💖 | TEXT: Hi Test Partner A,
+
+Great news! Test Partner B has accepted your invitation. Your shared relationship space is now active!
+[2026-07-10T17:50:50.197Z] TO: test_partner_a_56746@example.com | SUBJECT: Verify your account: 202532 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 202532
+
+This code expires in 10 minutes.
+[2026-07-10T17:50:50.370Z] TO: test_partner_b_56746@example.com | SUBJECT: Verify your account: 624022 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 624022
+
+This code expires in 10 minutes.
+[2026-07-10T17:50:51.474Z] TO: test_partner_a_56746@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner A,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:50:51.567Z] TO: test_partner_b_56746@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner B,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:50:53.283Z] TO: test_partner_a_56746@example.com | SUBJECT: Your partner accepted your invitation! 💖 | TEXT: Hi Test Partner A,
+
+Great news! Test Partner B has accepted your invitation. Your shared relationship space is now active!
+[2026-07-10T17:52:23.729Z] TO: test_partner_a_256491@example.com | SUBJECT: Verify your account: 487782 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 487782
+
+This code expires in 10 minutes.
+[2026-07-10T17:52:23.887Z] TO: test_partner_b_256491@example.com | SUBJECT: Verify your account: 846454 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 846454
+
+This code expires in 10 minutes.
+[2026-07-10T17:52:24.997Z] TO: test_partner_a_256491@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner A,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:52:25.086Z] TO: test_partner_b_256491@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner B,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:52:26.803Z] TO: test_partner_a_256491@example.com | SUBJECT: Your partner accepted your invitation! 💖 | TEXT: Hi Test Partner A,
+
+Great news! Test Partner B has accepted your invitation. Your shared relationship space is now active!
+[2026-07-10T17:57:21.239Z] TO: test_debug@test.com | SUBJECT: Verify your account: 517792 💕 | TEXT: Hi Test User,
+
+Your 6-digit email verification code is: 517792
+
+This code expires in 10 minutes.
+[2026-07-10T17:58:08.647Z] TO: manual_user_a_433961@test.com | SUBJECT: Verify your account: 203730 💕 | TEXT: Hi Alice Manual,
+
+Your 6-digit email verification code is: 203730
+
+This code expires in 10 minutes.
+[2026-07-10T17:58:09.550Z] TO: manual_user_a_433961@test.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Alice Manual,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:58:11.309Z] TO: manual_user_b_433961@test.com | SUBJECT: Verify your account: 252318 💕 | TEXT: Hi Bob Manual,
+
+Your 6-digit email verification code is: 252318
+
+This code expires in 10 minutes.
+[2026-07-10T17:58:12.208Z] TO: manual_user_b_433961@test.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Bob Manual,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-10T17:58:13.834Z] TO: manual_user_a_433961@test.com | SUBJECT: Your partner accepted your invitation! 💖 | TEXT: Hi Alice Manual,
+
+Great news! Bob Manual has accepted your invitation. Your shared relationship space is now active!
+[2026-07-11T06:33:14.858Z] TO: test_partner_a_82470@example.com | SUBJECT: Verify your account: 820566 💕 | TEXT: Hi Test Partner A,
+
+Your 6-digit email verification code is: 820566
+
+This code expires in 10 minutes.
+[2026-07-11T06:33:15.121Z] TO: test_partner_b_82470@example.com | SUBJECT: Verify your account: 929728 💕 | TEXT: Hi Test Partner B,
+
+Your 6-digit email verification code is: 929728
+
+This code expires in 10 minutes.
+[2026-07-11T06:33:16.405Z] TO: test_partner_a_82470@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner A,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-11T06:33:16.548Z] TO: test_partner_b_82470@example.com | SUBJECT: Welcome to Only For Us! 💕 | TEXT: Hi Test Partner B,
+
+Welcome to Only For Us! We are excited to have you join our relationship platform.
+
+Only For Us Team
+[2026-07-11T06:33:18.544Z] TO: test_partner_a_82470@example.com | SUBJECT: Your partner accepted your invitation! 💖 | TEXT: Hi Test Partner A,
+
+Great news! Test Partner B has accepted your invitation. Your shared relationship space is now active!
+[2026-07-11T06:39:35.655Z] TO: test1@example.com | SUBJECT: Verify your account: 913893 💕 | TEXT: Hi Test One,
+
+Your 6-digit email verification code is: 913893
+
+This code expires in 10 minutes.
