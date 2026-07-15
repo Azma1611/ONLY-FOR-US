@@ -19,6 +19,12 @@ import {
   CalendarPage,
   PlannerPage,
   FinancePage,
+  MemoriesPage,
+  EcosystemPage,
+  AIPage,
+  NotificationCenter,
+  PWASettings,
+  MediaPage,
 } from '@/routes';
 
 /**
@@ -50,6 +56,12 @@ export default function App() {
               <Route path="/calendar" element={<CalendarPage />} />
               <Route path="/planner" element={<PlannerPage />} />
               <Route path="/finance" element={<FinancePage />} />
+              <Route path="/memories" element={<MemoriesPage />} />
+              <Route path="/media" element={<MediaPage />} />
+              <Route path="/ecosystem" element={<EcosystemPage />} />
+              <Route path="/ai" element={<AIPage />} />
+              <Route path="/notifications" element={<NotificationCenter />} />
+              <Route path="/settings" element={<PWASettings />} />
             </Route>
           </Route>
 

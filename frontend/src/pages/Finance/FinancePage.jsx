@@ -3,10 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Wallet,
   TrendingUp,
-  PieChart,
   ArrowRightLeft,
-  PiggyBank,
-  FileText
+  PiggyBank
 } from 'lucide-react';
 import useFinanceStore from '@/store/financeStore';
 import DashboardWorkspace from './workspaces/DashboardWorkspace';

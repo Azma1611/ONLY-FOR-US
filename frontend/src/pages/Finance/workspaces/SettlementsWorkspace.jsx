@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useFinanceStore from '@/store/financeStore';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { Plus, Check, HandCoins } from 'lucide-react';
+import { Check, HandCoins } from 'lucide-react';
 import useAuthStore from '@/store/authStore';
 import { format } from 'date-fns';
 

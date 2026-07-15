@@ -7,6 +7,16 @@ const memorySchema = new mongoose.Schema({
     required: true,
     index: true,
   },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  albumId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Album',
+    default: null,
+  },
   title: {
     type: String,
     required: true,
@@ -16,22 +26,47 @@ const memorySchema = new mongoose.Schema({
     type: String,
     default: '',
   },
-  photos: {
-    type: [String],
-    default: [],
+  mediaType: {
+    type: String,
+    enum: ['photo', 'video', 'voice', 'text', 'place', 'milestone'],
+    default: 'photo',
   },
-  videos: {
-    type: [String],
-    default: [],
+  mediaUrl: {
+    type: String,
+    default: '',
+  },
+  thumbnail: {
+    type: String,
+    default: '',
   },
   location: {
     type: String,
     default: '',
   },
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  tags: {
+    type: [String],
+    default: [],
+  },
+  favorite: {
+    type: Boolean,
+    default: false,
+  },
+  visibility: {
+    type: String,
+    enum: ['private', 'shared'],
+    default: 'shared',
+  },
+  weather: {
+    type: String,
+    default: '',
+  },
+  mood: {
+    type: String,
+    default: '',
   },
 }, {
   timestamps: true,

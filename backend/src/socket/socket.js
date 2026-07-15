@@ -13,7 +13,7 @@ let io = null;
 export const initSocket = (server) => {
   io = new Server(server, {
     cors: {
-      origin: process.env.CLIENT_URL || 'http://localhost:5173',
+      origin: process.env.FRONTEND_URL,
       credentials: true,
     },
   });
@@ -283,6 +283,31 @@ export const initSocket = (server) => {
       } catch (error) {
         logger.error(`Error in editMessage: ${error.message}`);
       }
+    });
+
+    // Event: mediaUpload
+    socket.on('media_upload', (media) => {
+      if (relationshipId) socket.to(relationshipId).emit('media_upload', media);
+    });
+
+    // Event: mediaDelete
+    socket.on('media_delete', ({ mediaId, type }) => {
+      if (relationshipId) socket.to(relationshipId).emit('media_delete', { mediaId, type });
+    });
+
+    // Event: mediaDownload
+    socket.on('media_download', ({ mediaId, userId }) => {
+      if (relationshipId) socket.to(relationshipId).emit('media_download', { mediaId, userId });
+    });
+
+    // Event: mediaFavorite
+    socket.on('media_favorite', ({ mediaId, isFavorited, userId }) => {
+      if (relationshipId) socket.to(relationshipId).emit('media_favorite', { mediaId, isFavorited, userId });
+    });
+
+    // Event: mediaSeen
+    socket.on('media_seen', ({ mediaId, userId }) => {
+      if (relationshipId) socket.to(relationshipId).emit('media_seen', { mediaId, userId });
     });
 
     // Event: Disconnection handling

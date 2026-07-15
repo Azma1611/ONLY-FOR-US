@@ -11,6 +11,8 @@
     "test:pairing": "node test-pairing-api.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "archiver": "^8.0.0",
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.10.0",
     "compression": "^1.8.1",
@@ -21,14 +23,22 @@
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^8.5.2",
     "express-validator": "^7.3.2",
+    "firebase-admin": "^14.1.0",
+    "googleapis": "^173.0.0",
     "helmet": "^8.2.0",
+    "hpp": "^0.2.3",
+    "json2csv": "^6.0.0-alpha.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1",
     "morgan": "^1.11.0",
     "multer": "^2.2.0",
     "nanoid": "^5.1.16",
+    "node-cron": "^4.6.0",
     "nodemailer": "^9.0.3",
+    "pdfkit": "^0.19.1",
     "socket.io": "^4.8.3",
+    "web-push": "^3.6.7",
+    "xss-clean": "^0.1.4",
     "zod": "^4.4.3"
   },
   "devDependencies": {

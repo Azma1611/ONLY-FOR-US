@@ -1,49 +1,52 @@
 import mongoose from 'mongoose';
 
 const reminderSchema = new mongoose.Schema({
-  relationshipId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Relationship',
-    required: true,
-    index: true,
-  },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-    index: true,
-  },
   title: {
     type: String,
     required: true,
-    trim: true,
   },
-  message: {
+  description: {
     type: String,
     default: '',
   },
-  remindAt: {
+  module: {
+    type: String,
+    enum: ['planner', 'goals', 'habits', 'bills', 'savings', 'medicine', 'calendar', 'birthdays', 'anniversaries', 'love_letters', 'study', 'work', 'ai_summary', 'custom'],
+    default: 'custom',
+  },
+  relatedId: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: null,
+  },
+  executeAt: {
     type: Date,
     required: true,
     index: true,
   },
-  isSent: {
-    type: Boolean,
-    default: false,
-  },
-  type: {
-    type: String,
-    enum: ['in-app', 'browser', 'email'],
-    default: 'in-app',
-  },
-  eventId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'CalendarEvent',
+  snoozeUntil: {
+    type: Date,
     default: null,
+  },
+  repeat: {
+    type: String,
+    enum: ['none', 'daily', 'weekly', 'monthly', 'yearly'],
+    default: 'none',
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'notified', 'dismissed'],
+    default: 'pending',
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  relationshipId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Relationship',
+    required: true,
   }
-}, {
-  timestamps: true,
-});
+}, { timestamps: true });
 
-const Reminder = mongoose.model('Reminder', reminderSchema);
-export default Reminder;
+export default mongoose.model('Reminder', reminderSchema);

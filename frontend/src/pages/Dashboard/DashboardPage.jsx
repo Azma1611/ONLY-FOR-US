@@ -6,13 +6,7 @@ import {
   Check, 
   UserPlus, 
   Link2, 
-  Calendar, 
-  BookOpen, 
-  Image, 
-  Sparkles, 
-  Activity, 
-  Clock, 
-  ShieldAlert
+  Sparkles
 } from 'lucide-react';
 import PageWrapper from '@/components/layout/PageWrapper';
 import Container from '@/components/ui/Container';
@@ -32,6 +26,8 @@ import useTodoStore from '@/store/todoStore';
 import useCalendarStore from '@/store/calendarStore';
 import usePlannerStore from '@/store/plannerStore';
 import useFinanceStore from '@/store/financeStore';
+import useMemoriesStore from '@/store/memoriesStore';
+import useMediaStore from '@/store/mediaStore';
 
 export default function DashboardPage() {
   const { user, updateUser } = useAuthStore();
@@ -48,6 +44,8 @@ export default function DashboardPage() {
   const { events, fetchEvents } = useCalendarStore();
   const { travelPlans, fetchTravelPlans } = usePlannerStore();
   const { summary, fetchAll: fetchFinanceData } = useFinanceStore();
+  const { memories, fetchMemories } = useMemoriesStore();
+  const { fetchMedia, pagination: mediaPagination } = useMediaStore();
 
   useEffect(() => {
     if (paired) {
@@ -67,6 +65,8 @@ export default function DashboardPage() {
       fetchEvents();
       fetchTravelPlans();
       fetchFinanceData();
+      fetchMemories();
+      fetchMedia(1, 1);
     }
   }, [paired]);
 
@@ -598,6 +598,70 @@ export default function DashboardPage() {
                         ${summary?.monthly?.savings !== undefined ? summary.monthly.savings.toLocaleString() : '0.00'}
                       </div>
                       <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Net Savings</div>
+                    </div>
+                  </Link>
+
+                  {/* Memories Count */}
+                  <Link 
+                    to="/memories"
+                    className="p-4 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl space-y-2 flex flex-col justify-between shadow-sm cursor-pointer hover:translate-y-[-4px] transition-transform col-span-2 sm:col-span-1"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-pink-50 dark:bg-pink-950/20 text-pink-500 flex items-center justify-center font-bold">
+                      📸
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[var(--text-primary)]">
+                        {memories.length}
+                      </div>
+                      <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Memories Saved</div>
+                    </div>
+                  </Link>
+
+                  {/* Shared Media Tile */}
+                  <Link 
+                    to="/media"
+                    className="p-4 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl space-y-2 flex flex-col justify-between shadow-sm cursor-pointer hover:translate-y-[-4px] transition-transform col-span-2 sm:col-span-1"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500 flex items-center justify-center font-bold">
+                      🖼️
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[var(--text-primary)]">
+                        {mediaPagination?.total || 0}
+                      </div>
+                      <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Shared Media</div>
+                    </div>
+                  </Link>
+
+                  {/* Ecosystem Tile */}
+                  <Link 
+                    to="/ecosystem"
+                    className="p-4 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl space-y-2 flex flex-col justify-between shadow-sm cursor-pointer hover:translate-y-[-4px] transition-transform col-span-2 sm:col-span-1"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500 flex items-center justify-center font-bold">
+                      🎯
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[var(--text-primary)]">
+                        Life
+                      </div>
+                      <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Productivity Hub</div>
+                    </div>
+                  </Link>
+
+                  {/* AI Assistant Tile */}
+                  <Link 
+                    to="/ai"
+                    className="p-4 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl space-y-2 flex flex-col justify-between shadow-sm cursor-pointer hover:translate-y-[-4px] transition-transform col-span-2 sm:col-span-1"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950/20 text-purple-500 flex items-center justify-center font-bold">
+                      ✨
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-[var(--text-primary)]">
+                        AI
+                      </div>
+                      <div className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Smart Assistant</div>
                     </div>
                   </Link>
                 </div>

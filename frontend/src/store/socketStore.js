@@ -3,11 +3,18 @@ import { io } from 'socket.io-client';
 import { API_BASE_URL } from '@/config/constants';
 import useAuthStore from './authStore';
 import useChatStore from './chatStore';
-import useNotificationStore from './notificationStore';
+import { useNotificationStore } from './notificationStore';
 import useCalendarStore from './calendarStore';
 import useTodoStore from './todoStore';
 import usePlannerStore from './plannerStore';
 import useFinanceStore from './financeStore';
+import useMemoriesStore from './memoriesStore';
+import useGoalStore from './goalStore';
+import useHabitStore from './habitStore';
+import useHealthStore from './healthStore';
+import useProductivityStore from './productivityStore';
+import useAchievementStore from './achievementStore';
+import useMediaStore from './mediaStore';
 
 const getSocketUrl = () => {
   return API_BASE_URL.replace('/api', '');
@@ -44,7 +51,7 @@ const useSocketStore = create((set, get) => ({
 
     newSocket.on('connect', () => {
       set({ isConnected: true });
-      console.log('🔌 Connected to Socket.IO server');
+
       
       if (user?.relationship) {
         newSocket.emit('joinRelationshipRoom', { relationshipId: user.relationship });
@@ -53,7 +60,7 @@ const useSocketStore = create((set, get) => ({
 
     newSocket.on('disconnect', () => {
       set({ isConnected: false });
-      console.log('🔌 Disconnected from Socket.IO server');
+
     });
 
     // Presence listeners
@@ -198,8 +205,43 @@ const useSocketStore = create((set, get) => ({
     });
 
     // Finance listener
-    newSocket.on('finance_update', (update) => {
-      useFinanceStore.getState().handleSocketUpdate(update);
+    newSocket.on('finance_update', (data) => {
+      useFinanceStore.getState().handleSocketUpdate(data);
+    });
+
+    newSocket.on('memory_update', (data) => {
+      useMemoriesStore.getState().handleSocketUpdate(data);
+    });
+
+    // Phase 8 Ecosystem
+    newSocket.on('ecosystem_update', (update) => {
+      const { type } = update;
+      if (type === 'goal') useGoalStore.getState().handleSocketUpdate(update);
+      if (type === 'habit' || type === 'habitLog') useHabitStore.getState().handleSocketUpdate(update);
+      if (type === 'healthLog' || type === 'medicine') useHealthStore.getState().handleSocketUpdate(update);
+      if (type === 'productivity') useProductivityStore.getState().handleSocketUpdate(update);
+      if (type === 'achievement') useAchievementStore.getState().handleSocketUpdate(update);
+    });
+
+    // Media listeners
+    newSocket.on('media_upload', (media) => {
+      useMediaStore.getState().receiveMediaUpload(media);
+    });
+    newSocket.on('media_delete', ({ mediaId, type }) => {
+      if (type === 'everyone') {
+        useMediaStore.getState().receiveMediaDelete(mediaId);
+      }
+    });
+    newSocket.on('media_favorite', ({ mediaId, isFavorited, userId }) => {
+      useMediaStore.getState().receiveMediaFavorite(mediaId, isFavorited, userId);
+    });
+    newSocket.on('media_download', ({ mediaId }) => {
+      useMediaStore.getState().receiveMediaDownload(mediaId);
+    });
+    newSocket.on('media_seen', ({ mediaId }) => {
+      const state = useMediaStore.getState();
+      state.media = state.media.map(m => m._id === mediaId ? { ...m, viewed: true } : m);
+      useMediaStore.setState(state);
     });
 
     newSocket.on('error', (err) => {

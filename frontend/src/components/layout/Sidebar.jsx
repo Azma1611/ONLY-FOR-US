@@ -1,6 +1,6 @@
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LayoutDashboard, ChevronLeft, LogOut, User, MessageCircle, Calendar, ClipboardList, Wallet } from 'lucide-react';
+import { LayoutDashboard, ChevronLeft, LogOut, User, MessageCircle, Calendar, ClipboardList, Wallet, BookOpen, Target, Sparkles, Bell, Settings, Image as ImageIcon } from 'lucide-react';
 import useUIStore from '@/store/uiStore';
 import useAuthStore from '@/store/authStore';
 import authService from '@/services/authService';
@@ -16,6 +16,12 @@ const iconMap = {
   Calendar,
   ClipboardList,
   Wallet,
+  BookOpen,
+  ImageIcon,
+  Target,
+  Sparkles,
+  Bell,
+  Settings,
 };
 
 export default function Sidebar() {

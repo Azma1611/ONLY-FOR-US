@@ -286,7 +286,7 @@ export const forgotPassword = async (req, res, next) => {
       expiresAt,
     });
 
-    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    const clientUrl = process.env.FRONTEND_URL;
     const resetUrl = `${clientUrl}/reset-password?token=${resetToken}&email=${encodeURIComponent(email)}`;
 
     await sendPasswordResetEmail(email, user.name, resetUrl);

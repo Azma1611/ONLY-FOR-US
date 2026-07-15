@@ -1,12 +1,6 @@
 import mongoose from 'mongoose';
 
 const habitSchema = new mongoose.Schema({
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-    index: true,
-  },
   title: {
     type: String,
     required: true,
@@ -14,20 +8,34 @@ const habitSchema = new mongoose.Schema({
   },
   frequency: {
     type: String,
-    enum: ['daily', 'weekly', 'monthly'],
+    enum: ['daily', 'weekly', 'monthly', 'yearly'],
     default: 'daily',
   },
-  streak: {
+  category: {
+    type: String,
+    default: 'custom', // could be fitness, study, health, etc.
+  },
+  currentStreak: {
     type: Number,
     default: 0,
   },
-  completedDates: {
-    type: [Date],
-    default: [],
+  longestStreak: {
+    type: Number,
+    default: 0,
   },
-}, {
-  timestamps: true,
-});
+  partnerVisibility: {
+    type: Boolean,
+    default: true,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  relationshipId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Relationship',
+  }
+}, { timestamps: true });
 
-const Habit = mongoose.model('Habit', habitSchema);
-export default Habit;
+export default mongoose.model('Habit', habitSchema);

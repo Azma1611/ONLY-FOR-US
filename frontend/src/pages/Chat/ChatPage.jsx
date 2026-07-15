@@ -1,19 +1,18 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Send, Smile, Paperclip, Mic, X, Check, CheckCheck, 
+  Send, Paperclip, Mic, X, Check, CheckCheck, 
   MoreVertical, Reply, Edit, Trash2, Copy, Search, 
   Volume2, VolumeX, Pause, Play, Square, Trash, 
   Download, Image as ImageIcon, FileText, Video as VideoIcon, 
-  ArrowDown, Pin, Star, Eye
+  ArrowDown, Eye
 } from 'lucide-react';
 
-import Avatar from '@/components/ui/Avatar';
 import Button from '@/components/ui/Button';
 import useAuthStore from '@/store/authStore';
 import useChatStore from '@/store/chatStore';
 import useSocketStore from '@/store/socketStore';
-import useNotificationStore from '@/store/notificationStore';
+import { useNotificationStore } from '@/store/notificationStore';
 import chatService from '@/services/chatService';
 
 // Format message timestamps
@@ -218,6 +217,7 @@ export default function ChatPage() {
   const [partner, setPartner] = useState(null);
   const [inputText, setInputText] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [highlightedMessageId, setHighlightedMessageId] = useState(null);
   
   // Media uploads states

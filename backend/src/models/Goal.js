@@ -1,17 +1,6 @@
 import mongoose from 'mongoose';
 
 const goalSchema = new mongoose.Schema({
-  relationshipId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Relationship',
-    required: true,
-    index: true,
-  },
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
   title: {
     type: String,
     required: true,
@@ -19,25 +8,58 @@ const goalSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    default: '',
+    trim: true,
+  },
+  category: {
+    type: String,
+    enum: ['personal', 'relationship', 'financial', 'study', 'fitness', 'career', 'custom'],
+    default: 'custom',
+  },
+  priority: {
+    type: String,
+    enum: ['low', 'medium', 'high'],
+    default: 'medium',
   },
   deadline: {
     type: Date,
-    default: null,
   },
   progress: {
     type: Number,
+    default: 0,
     min: 0,
     max: 100,
-    default: 0,
   },
-  completed: {
-    type: Boolean,
-    default: false,
+  checklist: [{
+    text: String,
+    completed: { type: Boolean, default: false }
+  }],
+  milestones: [{
+    title: String,
+    date: Date,
+    completed: { type: Boolean, default: false }
+  }],
+  status: {
+    type: String,
+    enum: ['pending', 'in_progress', 'completed'],
+    default: 'pending',
   },
-}, {
-  timestamps: true,
-});
+  completedDate: {
+    type: Date,
+  },
+  visibility: {
+    type: String,
+    enum: ['private', 'shared'],
+    default: 'shared',
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  relationshipId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Relationship',
+  }
+}, { timestamps: true });
 
-const Goal = mongoose.model('Goal', goalSchema);
-export default Goal;
+export default mongoose.model('Goal', goalSchema);

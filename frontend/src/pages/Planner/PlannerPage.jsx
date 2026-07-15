@@ -1,10 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Plus, Trash2, Edit, Check, X, ClipboardList, ShoppingCart, 
+import { Trash2, Check, ClipboardList, ShoppingCart, 
   Heart, Compass, Film, Utensils, Sun, Calendar, BarChart2, 
-  Star, Clock, MapPin, DollarSign, List, Save, Moon, Coffee, 
-  Compass as BeachIcon, Eye, CheckSquare
+  Star, Clock, MapPin, Moon, Coffee
 } from 'lucide-react';
 
 import useAuthStore from '@/store/authStore';

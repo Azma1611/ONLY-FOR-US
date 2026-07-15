@@ -1,8 +1,9 @@
 import http from 'http';
 import dotenv from 'dotenv';
-import connectDB from './config/database.js';
+import connectDB from './database/connection.js';
 import configureCloudinary from './config/cloudinary.js';
 import { initSocket } from './socket/socket.js';
+import { initCronJobs } from './services/cron.service.js';
 
 // 1. Load ENV
 console.log('Loading Environment Variables...');
@@ -30,6 +31,9 @@ const startServer = async () => {
     // 4. Initialize Socket.io
     console.log('Initializing Socket.io...');
     initSocket(server);
+
+    // Initialize background CRON jobs
+    initCronJobs();
 
     // 5. Server Running
     server.listen(PORT, () => {

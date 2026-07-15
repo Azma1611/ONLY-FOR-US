@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useFinanceStore from '@/store/financeStore';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { Plus, Trash2, Target, CheckCircle2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
 
 export default function BudgetsWorkspace() {

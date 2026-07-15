@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Heart, 
   Mail, 
-  Calendar, 
   Trash2, 
   AlertTriangle, 
   ShieldCheck, 

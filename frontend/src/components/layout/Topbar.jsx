@@ -1,15 +1,23 @@
 import { Bell, Search, Menu } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import Avatar from '@/components/ui/Avatar';
 import useAuthStore from '@/store/authStore';
 import useUIStore from '@/store/uiStore';
+import { useNotificationStore } from '@/store/notificationStore';
 
 export default function Topbar() {
   const { user } = useAuthStore();
   const { toggleSearch, setMobileNavOpen } = useUIStore();
+  const { unreadCount, fetchNotifications } = useNotificationStore();
   const navigate = useNavigate();
+
+  // Fetch initial notifications for count
+  useEffect(() => {
+    fetchNotifications();
+  }, [fetchNotifications]);
 
   return (
     <header className="sticky top-0 z-30 h-20 lg:h-22 flex items-center justify-between px-6 lg:px-12 bg-[var(--bg-primary)]/80 backdrop-blur-lg border-b border-[var(--border-color)]">
@@ -45,13 +53,18 @@ export default function Topbar() {
 
         {/* Notifications */}
         <motion.button
+          onClick={() => navigate('/notifications')}
           className="relative p-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)] transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <Bell className="w-5 h-5" />
           {/* Notification badge */}
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[var(--color-primary)] ring-2 ring-[var(--bg-primary)]" />
+          {unreadCount > 0 && (
+            <span className="absolute top-1 right-1 w-4 h-4 text-[10px] font-bold text-white rounded-full bg-[var(--color-primary)] ring-2 ring-[var(--bg-primary)] flex items-center justify-center">
+              {unreadCount}
+            </span>
+          )}
         </motion.button>
 
         {/* User avatar */}

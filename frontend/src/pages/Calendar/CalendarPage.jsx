@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { Plus, X, Calendar as CalendarIcon, MapPin, Tag, Clock, AlertTriangle, RefreshCw } from 'lucide-react';
+import { X, Calendar as CalendarIcon, RefreshCw } from 'lucide-react';
 import useCalendarStore from '@/store/calendarStore';
 import useAuthStore from '@/store/authStore';
 import Button from '@/components/ui/Button';
