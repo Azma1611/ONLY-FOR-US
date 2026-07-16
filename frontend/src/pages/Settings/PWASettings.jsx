@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Bell, Calendar, Download, RefreshCw, Server, AlertCircle } from 'lucide-react';
+import { Bell, Calendar, Download, RefreshCw, Server, AlertCircle, Palette } from 'lucide-react';
 import { calendarService } from '../../services/calendarService';
 import { backupService } from '../../services/backupService';
 import toast from 'react-hot-toast';
 import { useSyncStore } from '../../store/syncStore';
+import MoodThemeSelector from '../../components/ui/MoodThemeSelector';
 
 export default function PWASettings() {
   const { isOnline, pendingSyncs, fetchSyncStatus, processQueue } = useSyncStore();
@@ -42,6 +43,22 @@ export default function PWASettings() {
         </h1>
 
         <div className="space-y-6">
+
+          {/* Mood Themes */}
+          <section className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6">
+            <div className="flex items-start gap-4 mb-5">
+              <div className="p-3 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-xl">
+                <Palette className="w-6 h-6 text-pink-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-white">Mood Themes</h3>
+                <p className="text-sm text-slate-400 mt-1">
+                  Set the shared emotional atmosphere for you and your partner. Changes sync instantly across all devices.
+                </p>
+              </div>
+            </div>
+            <MoodThemeSelector />
+          </section>
           
           {/* Notifications */}
           <section className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6">
@@ -147,3 +164,4 @@ export default function PWASettings() {
     </div>
   );
 }
+

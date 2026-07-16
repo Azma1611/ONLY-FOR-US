@@ -2,13 +2,16 @@ import { Outlet } from 'react-router';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import Modal from '@/components/ui/Modal';
+import MoodThemeBackground from '@/components/ui/MoodThemeBackground';
 import useUIStore from '@/store/uiStore';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import useSocketStore from '@/store/socketStore';
+import useMoodThemeStore from '@/store/moodThemeStore';
 import { useEffect } from 'react';
 
 /**
- * Main app layout with sidebar + topbar for authenticated pages
+ * Main app layout with sidebar + topbar for authenticated pages.
+ * Initializes Socket.IO connection and mood theme on mount.
  */
 export default function AppLayout() {
   const { sidebarOpen, searchOpen, toggleSearch } = useUIStore();
@@ -17,21 +20,29 @@ export default function AppLayout() {
   const connectSocket = useSocketStore((state) => state.connectSocket);
   const disconnectSocket = useSocketStore((state) => state.disconnectSocket);
 
+  const fetchMoodTheme = useMoodThemeStore((state) => state.fetchMoodTheme);
+  const initMoodTheme = useMoodThemeStore((state) => state.initMoodTheme);
+
   useEffect(() => {
     connectSocket();
+    initMoodTheme(); // Apply persisted mood immediately
+    fetchMoodTheme(); // Then sync from API
     return () => {
       disconnectSocket();
     };
-  }, [connectSocket, disconnectSocket]);
+  }, [connectSocket, disconnectSocket, fetchMoodTheme, initMoodTheme]);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]">
+    <div className="min-h-screen bg-[var(--bg-primary)] mood-transition">
+      {/* Mood theme animated background */}
+      <MoodThemeBackground />
+
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main content area */}
       <div
-        className="transition-all duration-300 ease-[var(--ease-smooth)]"
+        className="relative z-10 transition-all duration-300 ease-[var(--ease-smooth)]"
         style={{
           marginLeft: isDesktop ? (sidebarOpen ? 260 : 72) : 0,
         }}

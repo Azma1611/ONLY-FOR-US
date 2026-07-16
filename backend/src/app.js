@@ -40,6 +40,7 @@ import wishlistRoutes from './routes/wishlist.routes.js';
 import integrationRoutes from './routes/integrations.routes.js';
 import syncRoutes from './routes/sync.routes.js';
 import mediaRoutes from './routes/media.routes.js';
+import themeRoutes from './routes/theme.routes.js';
 
 const app = express();
 
@@ -109,6 +110,7 @@ app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/integrations', integrationRoutes);
 app.use('/api/sync', syncRoutes);
 app.use('/api/media', mediaRoutes);
+app.use('/api/theme', themeRoutes);
 
 // Catch-all unhandled fallback routes
 app.use('*', (req, res, next) => {

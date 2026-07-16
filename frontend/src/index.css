@@ -124,6 +124,57 @@
   color-scheme: dark;
 }
 
+/* ===================================================================
+   MOOD THEME VARIABLES (Emotional theme overlay)
+   Orthogonal to light/dark — controls color palette, not brightness.
+   Updated dynamically via JS (moodThemeStore) on :root.
+   =================================================================== */
+:root {
+  /* Default: Normal mood */
+  --mood-gradient-start: #4FACFE;
+  --mood-gradient-end: #00F2FE;
+  --mood-accent: #4FACFE;
+  --mood-accent-light: #00F2FE;
+  --mood-glow: rgba(79, 172, 254, 0.3);
+  --mood-glow-strong: rgba(79, 172, 254, 0.5);
+  --mood-particle-color: rgba(79, 172, 254, 0.6);
+}
+
+/* Smooth 600ms transitions for all mood-dependent properties */
+.mood-transition,
+.mood-transition * {
+  transition:
+    background 0.6s ease,
+    background-color 0.6s ease,
+    border-color 0.6s ease,
+    box-shadow 0.6s ease,
+    color 0.6s ease;
+}
+
+/* Mood-aware gradient utilities */
+.mood-gradient {
+  background: linear-gradient(135deg, var(--mood-gradient-start), var(--mood-gradient-end));
+}
+
+.mood-gradient-text {
+  background: linear-gradient(135deg, var(--mood-gradient-start), var(--mood-gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mood-glow {
+  box-shadow: 0 0 20px var(--mood-glow), 0 0 60px var(--mood-glow);
+}
+
+.mood-border {
+  border-color: var(--mood-accent);
+}
+
+.mood-accent-text {
+  color: var(--mood-accent);
+}
+
 @layer base {
   * {
     margin: 0;

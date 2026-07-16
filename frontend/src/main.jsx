@@ -4,10 +4,12 @@ import { BrowserRouter } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App.jsx';
 import useThemeStore from './store/themeStore';
+import useMoodThemeStore from './store/moodThemeStore';
 import './index.css';
 
-// Initialize theme before first render
+// Initialize themes before first render
 useThemeStore.getState().initTheme();
+useMoodThemeStore.getState().initMoodTheme();
 
 // React Query client
 const queryClient = new QueryClient({

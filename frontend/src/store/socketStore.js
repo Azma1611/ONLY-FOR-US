@@ -15,6 +15,8 @@ import useHealthStore from './healthStore';
 import useProductivityStore from './productivityStore';
 import useAchievementStore from './achievementStore';
 import useMediaStore from './mediaStore';
+import useMoodThemeStore from './moodThemeStore';
+import useUIStore from './uiStore';
 
 const getSocketUrl = () => {
   return API_BASE_URL.replace('/api', '');
@@ -246,6 +248,20 @@ const useSocketStore = create((set, get) => ({
 
     newSocket.on('error', (err) => {
       console.error('Socket error event:', err);
+    });
+
+    // Mood theme synchronization listener
+    newSocket.on('theme_changed', (data) => {
+      const moodStore = useMoodThemeStore.getState();
+      const updatedBy = moodStore.handleSocketThemeChange(data);
+      if (updatedBy) {
+        useUIStore.getState().addToast({
+          type: 'success',
+          title: 'Mood Updated',
+          message: `${updatedBy.name} changed the mood ❤️`,
+          duration: 3000,
+        });
+      }
     });
 
     set({ socket: newSocket });

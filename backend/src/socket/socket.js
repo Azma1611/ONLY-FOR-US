@@ -310,6 +310,21 @@ export const initSocket = (server) => {
       if (relationshipId) socket.to(relationshipId).emit('media_seen', { mediaId, userId });
     });
 
+    // Event: themeChanged — mood theme synchronization
+    socket.on('theme_changed', (data) => {
+      if (relationshipId) {
+        socket.to(relationshipId).emit('theme_changed', {
+          theme: data.theme,
+          updatedBy: {
+            _id: user._id,
+            name: user.name,
+            avatar: user.avatar,
+          },
+          updatedAt: new Date(),
+        });
+      }
+    });
+
     // Event: Disconnection handling
     socket.on('disconnect', async () => {
       logger.info(`Socket disconnected: User ${user.name} <${user.email}>`);
